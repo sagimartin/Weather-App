@@ -75,6 +75,7 @@
 <style>
   .weather-app {
     max-height: 90dvh;
+    min-width: 70dvw;
     max-width: 80dvw;
     overflow: hidden;
     background-color: white;
