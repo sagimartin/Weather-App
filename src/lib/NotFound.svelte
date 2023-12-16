@@ -4,4 +4,10 @@
 </div>
 
 <style>
+ .not-found{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+ }
 </style>

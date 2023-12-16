@@ -73,4 +73,13 @@
 </div>
 
 <style>
+  .weather-app {
+    max-height: 90dvh;
+    max-width: 80dvw;
+    overflow: hidden;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: default;
+  }
 </style>

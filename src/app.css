@@ -9,7 +9,6 @@
 body {
   height: 100dvh;
   background-color: rgb(30, 3, 54);
-  color: azure;
   display: flex;
   align-items: center;
   justify-content: center;
