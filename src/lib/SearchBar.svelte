@@ -31,6 +31,10 @@
     caret-color: transparent;
   }
 
+  .search-bar > input::placeholder {
+    text-align: left;
+  }
+
   button {
     color: black;
     background-color: rgb(175, 171, 237);

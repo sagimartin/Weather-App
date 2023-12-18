@@ -75,12 +75,16 @@
 <style>
   .weather-app {
     max-height: 90dvh;
-    min-width: 70dvw;
-    max-width: 80dvw;
     overflow: hidden;
     background-color: white;
     padding: 1rem;
     border-radius: 0.5rem;
     cursor: default;
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    .weather-app {
+      scale: 3;
+    }
   }
 </style>
