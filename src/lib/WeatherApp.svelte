@@ -84,7 +84,7 @@
 
   @media only screen and (min-device-width: 768px) {
     .weather-app {
-      scale: 3;
+      transform: scale(3);
     }
   }
 </style>
