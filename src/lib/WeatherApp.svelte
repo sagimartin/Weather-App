@@ -48,8 +48,16 @@
         return "snowy.svg";
       case "Clouds":
         return "cloudy-sunny.svg";
+      case "Wind":
+        return "windy.svg";
+      case "Thunderstorm":
+        return "thunderstorm.svg";
+      case "Drizzle":
+        return "drizzle.svg";
       case "Haze":
-        return "misty.svg";
+      case "Mist":
+      case "Fog":
+        return "clouds.svg";
       default:
         return "";
     }
