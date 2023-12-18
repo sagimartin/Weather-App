@@ -1,11 +1,22 @@
 <script lang="ts">
   export let city: string;
   export let onSearch: () => void;
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      onSearch();
+    }
+  };
 </script>
 
 <div class="search-bar">
   <span class="material-symbols-outlined"> location_on </span>
-  <input type="text" bind:value={city} placeholder="Find a location" />
+  <input
+    type="text"
+    bind:value={city}
+    placeholder="Find a location"
+    on:keydown={handleKeyDown}
+  />
   <button
     on:click={onSearch}
     class="material-symbols-outlined search"
