@@ -12,7 +12,8 @@
   }
 
   img {
-    width: 90%;
+    width: 20rem;
+    margin-bottom: 1rem;
   }
 
   p {
