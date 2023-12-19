@@ -34,21 +34,23 @@
 </script>
 
 <div class="search-bar">
+  <div class="search-input">
+    <input
+      type="text"
+      bind:value={city}
+      placeholder="Find a location"
+      on:keydown={handleKeyDown}
+    />
+    <button
+      on:click={onSearch}
+      class="material-symbols-outlined search"
+      aria-label="Search"
+    >
+      search
+    </button>
+  </div>
   <button on:click={detectLocation} class="material-symbols-outlined location">
     my_location
-  </button>
-  <input
-    type="text"
-    bind:value={city}
-    placeholder="Find a location"
-    on:keydown={handleKeyDown}
-  />
-  <button
-    on:click={onSearch}
-    class="material-symbols-outlined search"
-    aria-label="Search"
-  >
-    search
   </button>
 </div>
 
@@ -60,9 +62,18 @@
     gap: 0.5rem;
   }
 
+  .search-input {
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+  }
+
   input {
     width: 13rem;
     border: none;
+    margin-left: 0.5rem;
     text-transform: capitalize;
     font-weight: 600;
     caret-color: transparent;
@@ -79,19 +90,22 @@
     transition: 0.4s ease;
   }
 
-  .location {
-    color: rgb(24, 139, 101);
-  }
-
-  .location:hover {
-    color: black;
-  }
-
   .search {
     color: blueviolet;
   }
 
   .search:hover {
     color: rgb(89, 0, 255);
+  }
+
+  .location {
+    color: white;
+    background-color: blueviolet;
+    padding: 0.3rem;
+    border-radius: 50px;
+  }
+
+  .location:hover {
+    background-color: rgb(89, 0, 255);
   }
 </style>

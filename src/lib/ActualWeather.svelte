@@ -65,6 +65,7 @@
   }
 
   .description {
+    font-size: 1.5rem;
     font-weight: 600;
     color: rgba(0, 0, 255, 0.59);
   }
@@ -78,7 +79,7 @@
   .infos {
     display: flex;
     flex-direction: column;
-    font-size: 0.7rem;
+    font-size: 1rem;
     gap: 1rem;
   }
 
@@ -87,7 +88,8 @@
     align-items: center;
     justify-content: flex-start;
     gap: 0.1rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   .info > p {
