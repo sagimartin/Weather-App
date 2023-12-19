@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   export let city: string;
   export let onSearch: () => void;
 
@@ -7,10 +9,34 @@
       onSearch();
     }
   };
+
+  const detectLocation = () => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const { latitude, longitude } = position.coords;
+      const APIKey = import.meta.env.VITE_WEATHER_API_KEY;
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIKey}`
+        );
+        const data = await response.json();
+        city = data.name || "Unknown City";
+
+        onSearch();
+      } catch (error) {
+        console.error("Error during location detection:", error.message);
+      }
+    });
+  };
+
+  onMount(() => {
+    detectLocation();
+  });
 </script>
 
 <div class="search-bar">
-  <span class="material-symbols-outlined"> location_on </span>
+  <button on:click={detectLocation} class="material-symbols-outlined location">
+    my_location
+  </button>
   <input
     type="text"
     bind:value={city}
@@ -31,34 +57,41 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.5rem;
   }
 
-  .search-bar > input {
-    padding: 0.2rem;
+  input {
+    width: 13rem;
     border: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
     caret-color: transparent;
   }
 
-  .search-bar > input::placeholder {
+  input::placeholder {
     text-align: left;
   }
 
   button {
-    color: black;
-    background-color: rgb(175, 171, 237);
-    border-radius: 50%;
+    background: none;
     border: none;
-    padding: 0.2rem;
     cursor: pointer;
-    scale: 0.8;
     transition: 0.4s ease;
   }
 
-  button:hover {
+  .location {
+    color: rgb(24, 139, 101);
+  }
+
+  .location:hover {
+    color: black;
+  }
+
+  .search {
+    color: blueviolet;
+  }
+
+  .search:hover {
     color: rgb(89, 0, 255);
-    scale: 0.9;
   }
 </style>
