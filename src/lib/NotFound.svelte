@@ -4,10 +4,19 @@
 </div>
 
 <style>
- .not-found{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: justify;
- }
+  .not-found {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    width: 90%;
+  }
+
+  p {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 </style>

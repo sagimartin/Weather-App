@@ -40,6 +40,7 @@
       bind:value={city}
       placeholder="Find a location"
       on:keydown={handleKeyDown}
+      on:focus={() => (city = "")}
     />
     <button
       on:click={onSearch}
@@ -59,6 +60,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
   }
 
@@ -77,6 +79,7 @@
     text-transform: capitalize;
     font-weight: 600;
     caret-color: transparent;
+    color: rgb(89, 0, 255);
   }
 
   input::placeholder {
