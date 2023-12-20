@@ -21,8 +21,11 @@
       if (json.cod === "404") {
         weatherData = {};
       } else {
+        const isEvening =
+          new Date().getHours() >= new Date(json.sys.sunset * 1000).getHours();
+
         weatherData = {
-          image: getWeatherImage(json.weather[0].main),
+          image: getWeatherImage(json.weather[0].main, isEvening),
           temperature: `${parseInt(json.main.temp)}°C`,
           description: json.weather[0].description,
           windSpeed: `${parseInt(json.wind.speed)}Km/h`,
@@ -38,16 +41,16 @@
     }
   };
 
-  const getWeatherImage = (weatherType: string) => {
+  const getWeatherImage = (weatherType: string, isEvening: boolean) => {
     switch (weatherType) {
       case "Clear":
-        return "sunny.svg";
+        return isEvening ? "clear-moon.svg" : "sunny.svg";
       case "Rain":
         return "rainy.svg";
       case "Snow":
         return "snowy.svg";
       case "Clouds":
-        return "cloudy-sunny.svg";
+        return isEvening ? "cloudy-moon.svg" : "cloudy-sunny.svg";
       case "Wind":
         return "windy.svg";
       case "Thunderstorm":
