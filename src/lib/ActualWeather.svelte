@@ -1,5 +1,19 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   export let weatherData: any;
+  let lastUpdate: string = "";
+
+  const updateLastUpdate = () => {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    lastUpdate = `${hours}:${minutes}`;
+  };
+
+  onMount(() => {
+    updateLastUpdate();
+  });
 </script>
 
 <div class="actual-weather">
@@ -46,12 +60,14 @@
   </div>
 </div>
 
+<p class="last-update">Last update: {lastUpdate}</p>
+
 <style>
   .actual-weather {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .actual-weather img {
@@ -95,5 +111,14 @@
   .info > p {
     font-weight: 600;
     color: rgb(175, 171, 237);
+  }
+
+  .last-update {
+    width: 100%;
+    text-align: center;
+    font-size: 0.6rem;
+    color: gray;
+    position: relative;
+    bottom: -0.5rem;
   }
 </style>
