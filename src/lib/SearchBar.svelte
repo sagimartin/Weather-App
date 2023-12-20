@@ -78,11 +78,11 @@
     margin-left: 0.5rem;
     text-transform: capitalize;
     font-weight: 600;
-    caret-color: transparent;
     color: rgb(89, 0, 255);
   }
 
   input::placeholder {
+    padding: 0 0.2rem;
     text-align: left;
   }
 
